@@ -58,7 +58,7 @@ You are required to create a simple simulation of a university management system
 
 ## UML Class Diagram
 
-Refer to the [PlantUML diagram](../images/oop-version4.png).
+Refer to the [PlantUML diagram](https://raw.githubusercontent.com/verisoft-ai/oop-ex/refs/heads/master/images/oop-version4.png).
 
 ## Submission
 1. Upload your code to a public repository on GitHub.
