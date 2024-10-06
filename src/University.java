@@ -1,5 +1,10 @@
+import Classes.*;
+
 import java.util.List;
 
+/**
+ * Main class that simulates the university management system and its functionality.
+ */
 public class University {
     public static void main(String[] args) {
         // Create students and professors
@@ -26,6 +31,9 @@ public class University {
         displayParticipants(ai500.getParticipants());
     }
 
+    /**
+     * Display the participants in a course
+     */
     private static void displayParticipants(List<Person> participants) {
         for (Person person : participants) {
             System.out.println(person.getName() + " - " + person.getRole());
