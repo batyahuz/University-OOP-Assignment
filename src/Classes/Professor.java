@@ -23,13 +23,6 @@ public class Professor extends Person {
     }
 
     /**
-     * Returns the department of the professor (private)
-     */
-    public String getDepartment() {
-        return department;
-    }
-
-    /**
      * Returns the role of the person (Professor)
      */
     @Override
@@ -41,6 +34,6 @@ public class Professor extends Person {
      * Method that describes a teaching activity
      */
     public String teach() {
-        return getName() + " is teaching.";
+        return getRole() + ": " + department + " - " + getName() + " is teaching.";
     }
 }

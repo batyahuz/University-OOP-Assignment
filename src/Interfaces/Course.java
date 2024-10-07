@@ -19,7 +19,7 @@ public interface Course {
     String getCourseCode();
 
     /**
-     * Adds a participant to the course
+     * Adds a person to the course
      */
     void addParticipant(Person person);
 

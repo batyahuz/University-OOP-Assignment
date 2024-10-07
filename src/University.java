@@ -1,5 +1,7 @@
 import Classes.*;
+import Interfaces.Course;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,27 +10,35 @@ import java.util.List;
 public class University {
     public static void main(String[] args) {
         // Create students and professors
-        Student student1 = new Student("John", 20, "123 Main St", "S001");
-        Student student2 = new Student("Bob", 21, "456 Rock St", "S002");
+        Student student1 = new Student("Bob", 21, "456 Rock St");
+        Student student2 = new Student("John", 20, "123 Main St");
         Professor professor1 = new Professor("Dr. Smith", 45, "789 Pine St", "Computer Science");
+        Professor professor2 = new Professor("Dr. Ariel", 48, "101 Luna Ave", "Computer Science");
 
         // Create courses
-        UndergraduateCourse jv101 = new UndergraduateCourse("Intro to JAVA", "JV101");
-        GraduateCourse ai500 = new GraduateCourse("Advanced AI", "AI500", "Artificial Intelligence");
+        GraduateCourse course1 = new GraduateCourse("Advanced AI", "Artificial Intelligence");
+        UndergraduateCourse course2 = new UndergraduateCourse("Intro to JAVA");
 
         // Add participants to courses
-        jv101.addParticipant(student1);
-        jv101.addParticipant(student2);
-        jv101.addParticipant(professor1);
+        course1.addParticipant(professor1);
+        course1.addParticipant(professor2);
+        course1.addParticipant(student1);
 
-        ai500.addParticipant(professor1);
+        course2.addParticipant(student1);
+        course2.addParticipant(student2);
+        course2.addParticipant(professor1);
 
-        // Display course participants
-        System.out.println("Participants in " + jv101.getCourseName() + ":");
-        displayParticipants(jv101.getParticipants());
+        // Add courses to a list
+        List<Course> courses = new ArrayList<>();
+        courses.add(course1);
+        courses.add(course2);
 
-        System.out.println("\nParticipants in " + ai500.getCourseName() + ":");
-        displayParticipants(ai500.getParticipants());
+        // Display courses participants
+        courses.forEach(course -> {
+            System.out.println("Participants in " + course.getCourseName() + ":");
+            displayParticipants(course.getParticipants());
+            System.out.println("\n");
+        });
     }
 
     /**
@@ -36,7 +46,15 @@ public class University {
      */
     private static void displayParticipants(List<Person> participants) {
         for (Person person : participants) {
-            System.out.println(person.getName() + " - " + person.getRole());
+            if (person instanceof Professor)
+                System.out.println("teach()\t\t\t" + ((Professor) person).teach());
+            else if (person instanceof Student)
+                System.out.println("study()\t\t\t" + ((Student) person).study());
+            System.out.println("getName()\t\t" + person.getName());
+            System.out.println("getAge()\t\t" + person.getAge());
+            System.out.println("getAddress()\t" + person.getAddress());
+            System.out.println("getRole()\t\t" + person.getRole());
+            System.out.println("---");
         }
     }
 }

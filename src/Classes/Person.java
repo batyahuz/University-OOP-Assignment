@@ -19,6 +19,10 @@ public abstract class Person {
 
     /**
      * Constructor for the Person class
+     *
+     * @param name    - The name of the person
+     * @param age     - The age of the person
+     * @param address -The address of the person
      */
     public Person(String name, int age, String address) {
         this.name = name;

@@ -4,6 +4,7 @@ import Interfaces.Course;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Represents an undergraduate course with participants and course details.
@@ -26,11 +27,10 @@ public class UndergraduateCourse implements Course {
      * Constructor for the UndergraduateCourse class
      *
      * @param courseName - The name of the course
-     * @param courseCode - The course code
      */
-    public UndergraduateCourse(String courseName, String courseCode) {
+    public UndergraduateCourse(String courseName) {
         this.courseName = courseName;
-        this.courseCode = courseCode;
+        this.courseCode = UUID.randomUUID().toString();;
     }
 
     /**
@@ -50,7 +50,7 @@ public class UndergraduateCourse implements Course {
     }
 
     /**
-     * Adds a participant to the list
+     * Adds a person to the course
      */
     @Override
     public void addParticipant(Person person) {

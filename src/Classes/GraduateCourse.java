@@ -4,6 +4,7 @@ import Interfaces.Course;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Represents a graduate course with a research focus and participants.
@@ -33,12 +34,12 @@ public class GraduateCourse implements Course {
      * Constructor for the GraduateCourse class
      *
      * @param courseName    - The name of the course
-     * @param courseCode    - The course code
      * @param researchFocus - The research focus of the course
      */
-    public GraduateCourse(String courseName, String courseCode, String researchFocus) {
+    public GraduateCourse(String courseName, String researchFocus) {
         this.courseName = courseName;
-        this.courseCode = courseCode;
+        this.courseCode = UUID.randomUUID().toString();
+        ;
         this.researchFocus = researchFocus;
     }
 
@@ -59,7 +60,7 @@ public class GraduateCourse implements Course {
     }
 
     /**
-     * Adds a participant to the list
+     * Adds a person to the course
      */
     @Override
     public void addParticipant(Person person) {
