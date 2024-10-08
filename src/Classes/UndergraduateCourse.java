@@ -30,7 +30,7 @@ public class UndergraduateCourse implements Course {
      */
     public UndergraduateCourse(String courseName) {
         this.courseName = courseName;
-        this.courseCode = UUID.randomUUID().toString();;
+        this.courseCode = UUID.randomUUID().toString();
     }
 
     /**
