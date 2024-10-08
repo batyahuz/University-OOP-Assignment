@@ -13,7 +13,7 @@ public class University {
         Student student1 = new Student("Bob", 21, "456 Rock St");
         Student student2 = new Student("John", 20, "123 Main St");
         Professor professor1 = new Professor("Dr. Smith", 45, "789 Pine St", "Computer Science");
-        Professor professor2 = new Professor("Dr. Ariel", 48, "101 Luna Ave", "Computer Science");
+        Person professor2 = new Professor("Dr. Ariel", 48, "101 Luna Ave", "Computer Science");
 
         // Create courses
         GraduateCourse course1 = new GraduateCourse("Advanced AI", "Artificial Intelligence");
@@ -35,6 +35,9 @@ public class University {
 
         // Display courses participants
         courses.forEach(course -> {
+            if (course instanceof GraduateCourse) {
+                System.out.println(((GraduateCourse) course).getResearchFocus());
+            }
             System.out.println("Participants in " + course.getCourseName() + ":");
             displayParticipants(course.getParticipants());
             System.out.println("\n");
